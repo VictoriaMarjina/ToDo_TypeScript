@@ -1,20 +1,28 @@
+//import { Dispatch } from 'react';
 import Component from './todo';
+import { connect, ConnectedProps } from 'react-redux';
 import * as actions from './actions/actions';
 import * as selectors from './selectors';
-import { connect } from 'react-redux';
+import * as types from './types/types';
+//import { ActionTypes } from './actionTypes/actionTypes';
 
-const mapStateToProps = (state: any) => ({
-    currentPage: selectors.getCurrentPage(state),
-    currentPerson: selectors.getCurrentPerson(state),
-    allUsers: selectors.getAllUsers(state),
+// const Header: React.FC<HeaderProps> = ({
+// 	currentUser,
+// 	signOutStart,
+// }) => ()
+
+const mapStateToProps = (state: types.InitialStateType) => ({
+    tasks: selectors.useTypedSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    saveUser: (userData: any) => dispatch(actions.onSaveUser(userData)),
-    submitFormData: (userData: any) => dispatch(actions.onSubmitFormData(userData)),
-    deleteUser: (userData: any) => dispatch(actions.onDeleteUser(userData)),
-    setAllUsers: () => dispatch(actions.onSetAllUsers()),
-    deleteCurrentPerson: () => dispatch(actions.onDeleteCurrentPerson()),
+    addTask: (userData: types.taskType) => dispatch(actions.addTask(userData)),
+    checkTask: (id: number) => dispatch(actions.checkTask(id)),
+    deleteTask: (id: number) => dispatch(actions.deleteTask(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export type Props = ConnectedProps<typeof connector>;
+
+export default connector(Component)

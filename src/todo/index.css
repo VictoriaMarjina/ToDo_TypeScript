@@ -15,3 +15,9 @@
     overflow-y: auto;
     margin-left: 2%;
 }
+
+.checked {
+    background-color: gray;
+    color: #fff;
+    text-decoration: line-through;
+  }

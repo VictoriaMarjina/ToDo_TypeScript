@@ -1,1 +1,1 @@
-export const getSearchInfo = (state: any) => state.rootReducer.tasks;
+export const useTypedSelector = (state: any) => state.rootReducer.tasks;

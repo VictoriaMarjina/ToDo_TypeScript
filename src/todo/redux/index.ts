@@ -1,11 +1,7 @@
 import * as types from '../types/types';
 import { ActionTypes } from '../actionTypes/actionTypes';
 
-export type InitialStateType = {
-    tasks: Array<types.taskType>;
-};
-
-const initialState: InitialStateType = {
+const initialState: types.InitialStateType = {
     tasks: [],
 };
 
@@ -22,12 +18,12 @@ const reducer = (state = initialState, action: any): InitialStateType => {
         case ActionTypes.DELETE_TASK:
             return {
                 ...state,
-                tasks: [...state.tasks, data],
+                tasks: state.tasks.filter(task => task.id !== action.payload)  
             }
         case ActionTypes.CHECK_TASK:
             return {
                 ...state,
-                tasks: [...state.tasks, data],
+                tasks: state.tasks.map(task => task.id === action.payload ? { ...task, isDone: true } : task)
             }
         default:
             return state

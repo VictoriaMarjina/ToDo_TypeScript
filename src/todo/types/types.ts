@@ -3,3 +3,7 @@ export type taskType = {
     text: string;
     isDone: boolean;
 }
+
+export type InitialStateType = {
+    tasks: Array<taskType>;
+};

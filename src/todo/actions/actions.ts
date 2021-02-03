@@ -6,27 +6,27 @@ export type AddTaskType = {
     data: types.taskType;
 }
 
-export const AddTask = (data: types.taskType): AddTaskType => ({
+export const addTask = (data: types.taskType): AddTaskType => ({
     type: ActionTypes.ADD_TASK,
     data,
 })
 
 export type DeleteTaskType = {
     type: ActionTypes.DELETE_TASK;
-    data: types.taskType;
+    data: number;
 }
 
-export const DeleteTask = (data: types.taskType): DeleteTaskType => ({
+export const deleteTask = (data: number): DeleteTaskType => ({
     type: ActionTypes.DELETE_TASK,
     data,
 })
 
 export type CheckTaskType = {
     type: ActionTypes.CHECK_TASK;
-    data: types.taskType;
+    data: number;
 }
 
-export const CheckTask = (data: types.taskType): CheckTaskType => ({
+export const checkTask = (data: number): CheckTaskType => ({
     type: ActionTypes.CHECK_TASK,
     data,
 })
