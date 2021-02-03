@@ -1,19 +1,12 @@
 //import { Dispatch } from 'react';
 import Component from './todo';
-import { connect, ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from './actions/actions';
-//import * as selectors from './selectors';
+import * as selectors from './selectors';
 import * as types from './types/types';
-import { AppStateType } from '../root/rootReducer'
-//import { ActionTypes } from './actionTypes/actionTypes';
 
-// const Header: React.FC<HeaderProps> = ({
-// 	currentUser,
-// 	signOutStart,
-// }) => ()
-
-const mapStateToProps = (state: AppStateType) => ({
-   //tasks: selectors.getState(state),
+const mapStateToProps = (state: types.InitialStateType) => ({
+   tasks: selectors.getState(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -22,8 +15,4 @@ const mapDispatchToProps = (dispatch: any) => ({
     deleteTask: (id: number) => dispatch(actions.deleteTask(id)),
 });
 
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-export type Props = ConnectedProps<typeof connector>;
-
-export default connector(Component);
+export default connect(mapStateToProps, mapDispatchToProps)(Component);

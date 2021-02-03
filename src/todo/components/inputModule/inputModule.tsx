@@ -25,9 +25,8 @@ const InputModule:FC<Props> = props => {
             <div className={'wrapper_button-wrapper button-wrapper'}>
                 <button
                     onClick={createTask}
-                    className={'button-wrapper_button'}>
-                    Add
-                </button>
+                    className={'button-wrapper_button'}
+                    children={'Add'}/>
             </div>
         </div>
     )
