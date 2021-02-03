@@ -1,0 +1,30 @@
+.task-wrapper_wrapper {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    background-color: chartreuse;
+}
+
+.wrapper_text-wrapper {
+    width: 80%;
+    height: 100%;
+}
+
+.text-wrapper_text {
+    padding-left: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper_delete-button-wrapper {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-button-wrapper_delete-button {
+    margin-top: 1%;
+}

@@ -1,0 +1,21 @@
+.input-module_wrapper {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    margin: 2% 0 0 1%;
+    flex-direction: row;
+}
+
+.wrapper_input-wrapper {
+    width: 80%;
+    height: auto;
+}
+
+.input-wrapper_input {
+    width: 90%;
+}
+
+.wrapper_button-wrapper {
+    width: 20%;
+    height: auto;
+}
