@@ -1,4 +1,3 @@
-//import { Dispatch } from 'react';
 import Component from './todo';
 import { connect } from 'react-redux';
 import * as actions from './actions/actions';

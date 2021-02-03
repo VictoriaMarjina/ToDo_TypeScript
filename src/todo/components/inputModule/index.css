@@ -12,10 +12,35 @@
 }
 
 .input-wrapper_input {
-    width: 90%;
+    width: 70%;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 3px ;
+    font-family: "Architects Daughter", cursive;
+    font-size: 1rem;
+    color: green;
+    margin-bottom: 20px;
 }
 
 .wrapper_button-wrapper {
     width: 10%;
-    height: auto;
+    height: 50%;
+    padding: 0;
+}
+
+.button-wrapper_button {
+    padding: 0;
+    border: none;
+    font-family: "Architects Daughter", cursive;
+    font-size: 100%;
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    color: #fdcb6e;
+    background-color: green;
+    cursor: pointer;
 }

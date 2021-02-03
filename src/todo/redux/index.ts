@@ -23,7 +23,7 @@ const reducer = (state = initialState, action: any): types.InitialStateType => {
         case ActionTypes.CHECK_TASK:
             return {
                 ...state,
-                tasks: state.tasks.map(task => task.id === data ? { ...task, isDone: true } : task)
+                tasks: state.tasks.map(task => task.id === data ? { ...task, isDone: !task.isDone } : task)
             }
         default:
             return state
