@@ -1,19 +1,11 @@
-import React, { useState, /*FC*/ } from 'react';
+import React, { useState } from 'react';
 import InputModule from './components/inputModule/inputModule';
 import TaskComponent from './components/task/taskComponent';
-//import { Props } from './index';
 import * as types from './types/types';
 import * as todoActions from './actions/actions';
 import {  useDispatch, shallowEqual } from 'react-redux';
 import { useTypedSelector } from '../utils/useSelector';
 import './index.css';
-
-// export interface Props {
-//     tasks: Array<types.taskType>;
-//     addTask: any;
-//     checkTask: any;
-//     deleteTask: any;
-// }
 
 const Todo = () => {
     const tasks = useTypedSelector(state => state.reducer.tasks, shallowEqual);
@@ -38,12 +30,10 @@ const Todo = () => {
     }
 
     const checkTask = (id: number): void => {
-        console.log('check', id);
         dispatch(todoActions.checkTask(id));
     }
     
     const deleteTask = (id: number): void => {
-        console.log('delete', id);
         dispatch(todoActions.deleteTask(id));
     }
 

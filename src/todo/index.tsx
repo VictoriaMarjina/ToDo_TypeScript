@@ -7,11 +7,6 @@ import * as types from './types/types';
 import { AppStateType } from '../root/rootReducer'
 //import { ActionTypes } from './actionTypes/actionTypes';
 
-// const Header: React.FC<HeaderProps> = ({
-// 	currentUser,
-// 	signOutStart,
-// }) => ()
-
 const mapStateToProps = (state: AppStateType) => ({
    //tasks: selectors.getState(state),
 });
