@@ -1,1 +1,1 @@
-export const useTypedSelector = (state: any) => state.rootReducer.tasks;
+export const getState = (state: any) => state.reducer.tasks;

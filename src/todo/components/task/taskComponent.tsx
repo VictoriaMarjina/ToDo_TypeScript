@@ -4,9 +4,9 @@ import './index.css';
 export interface Props {
     id: number;
     text: string;
-    deleteTask: any;
-    checkTask: any;
     isDone: boolean;
+    checkTask: Function;
+    deleteTask: Function;
 }
 const TaskComponent: FC<Props> = props => {
     const {
@@ -34,17 +34,17 @@ const TaskComponent: FC<Props> = props => {
             </div>
         </div>:
          <div className ={'task-wrapper_wrapper wrapper'}>
-         <div className={'wrapper_text-wrapper text-wrapper'}>
-             <p className={'text-wrapper_text checked checked'} 
-                children={text}
-                onClick={() => checkTask(id)}/>
-         </div>
-         <div className={'wrapper_delete-button-wrapper delete-button-wrapper'}>
-             <button className={'delete-button-wrapper_delete-button'}
-                 children={'x'}
-                 onClick={() => deleteTask(id)}/>           
-         </div>
-     </div>
+            <div className={'wrapper_text-wrapper text-wrapper'}>
+                <p className={'text-wrapper_text'} 
+                    children={text}
+                    onClick={() => checkTask(id)}/>
+            </div>
+            <div className={'wrapper_delete-button-wrapper delete-button-wrapper'}>
+                <button className={'delete-button-wrapper_delete-button'}
+                    children={'x'}
+                    onClick={() => deleteTask(id)}/>           
+            </div>
+        </div>
     )
 }
 

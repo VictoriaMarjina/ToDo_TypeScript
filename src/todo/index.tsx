@@ -2,8 +2,9 @@
 import Component from './todo';
 import { connect, ConnectedProps } from 'react-redux';
 import * as actions from './actions/actions';
-import * as selectors from './selectors';
+//import * as selectors from './selectors';
 import * as types from './types/types';
+import { AppStateType } from '../root/rootReducer'
 //import { ActionTypes } from './actionTypes/actionTypes';
 
 // const Header: React.FC<HeaderProps> = ({
@@ -11,8 +12,8 @@ import * as types from './types/types';
 // 	signOutStart,
 // }) => ()
 
-const mapStateToProps = (state: types.InitialStateType) => ({
-    tasks: selectors.useTypedSelector(state),
+const mapStateToProps = (state: AppStateType) => ({
+   //tasks: selectors.getState(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -25,4 +26,4 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 export type Props = ConnectedProps<typeof connector>;
 
-export default connector(Component)
+export default connector(Component);

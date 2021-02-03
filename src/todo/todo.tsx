@@ -1,11 +1,11 @@
-import React, { useState, FC } from 'react';
+import React, { useState, /*FC*/ } from 'react';
 import InputModule from './components/inputModule/inputModule';
 import TaskComponent from './components/task/taskComponent';
-import { Props } from './index'
+//import { Props } from './index';
 import * as types from './types/types';
-//import * as todoActions from './actions/actions';
-//import { useDispatch, /*shallowEqual*/ } from 'react-redux';
-//import { useTypedSelector } from '../utils/useSelector';
+import * as todoActions from './actions/actions';
+import {  useDispatch, shallowEqual } from 'react-redux';
+import { useTypedSelector } from '../utils/useSelector';
 import './index.css';
 
 // export interface Props {
@@ -15,11 +15,10 @@ import './index.css';
 //     deleteTask: any;
 // }
 
-const Todo: FC<Props> = ({tasks, addTask, checkTask, deleteTask}) => {
-    // const tasks = useTypedSelector(state => state.reducer.tasks, shallowEqual);
-    // const {  } = props;
-
+const Todo = () => {
+    const tasks = useTypedSelector(state => state.reducer.tasks, shallowEqual);
     const [inputValue, setInputValue] = useState('');
+    const dispatch = useDispatch();
 
     const getInputValue = (value: string): void => {
         setInputValue(value);
@@ -30,9 +29,22 @@ const Todo: FC<Props> = ({tasks, addTask, checkTask, deleteTask}) => {
             id: Date.now(),
             text: inputValue,
             isDone: false,
-        }
+        } 
 
-        addTask(task);
+        task.text.length !== 0 ?
+        dispatch(todoActions.addTask(task)):
+        alert('enter some text'); 
+        setInputValue('');
+    }
+
+    const checkTask = (id: number): void => {
+        console.log('check', id);
+        dispatch(todoActions.checkTask(id));
+    }
+    
+    const deleteTask = (id: number): void => {
+        console.log('delete', id);
+        dispatch(todoActions.deleteTask(id));
     }
 
     const renderTask = tasks.map((task: types.taskType) => (
@@ -51,6 +63,7 @@ const Todo: FC<Props> = ({tasks, addTask, checkTask, deleteTask}) => {
             <InputModule
                 createTask={createTask}
                 getInputValue={getInputValue}
+                value={inputValue}
             />
             <div className={'todo-wrapper_task-wrapper'}>
                 {renderTask}

@@ -6,7 +6,7 @@ const initialState: types.InitialStateType = {
 };
 
 // @ts-ignore
-const reducer = (state = initialState, action: any): InitialStateType => {
+const reducer = (state = initialState, action: any): types.InitialStateType => {
     const { type, data } = action;
 
     switch (type) {
@@ -18,12 +18,12 @@ const reducer = (state = initialState, action: any): InitialStateType => {
         case ActionTypes.DELETE_TASK:
             return {
                 ...state,
-                tasks: state.tasks.filter(task => task.id !== action.payload)  
+                tasks: state.tasks.filter(task => task.id !== data)  
             }
         case ActionTypes.CHECK_TASK:
             return {
                 ...state,
-                tasks: state.tasks.map(task => task.id === action.payload ? { ...task, isDone: true } : task)
+                tasks: state.tasks.map(task => task.id === data ? { ...task, isDone: true } : task)
             }
         default:
             return state

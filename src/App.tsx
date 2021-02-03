@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+//import { Props } from './todo/index';
 import Todo from './todo/todo';
 import './App.css';
 
