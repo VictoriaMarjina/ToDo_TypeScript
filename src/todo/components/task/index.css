@@ -18,7 +18,8 @@
     padding-left: 1%;
     width: 100%;
     height: 100%;
-    color: #fdcb6e;
+    color: green;
+    cursor: pointer;
 }
 
 .wrapper_delete-button-wrapper {
@@ -33,4 +34,5 @@
     margin-top: 1%;
     color: #fdcb6e;
     background-color: green;
+    cursor: pointer;
 }
