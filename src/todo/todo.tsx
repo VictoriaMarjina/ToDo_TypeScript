@@ -12,9 +12,9 @@ export interface Props {
 
 const Todo:FC<Props> = props => {
     const { tasks,
-         addTask, 
-         deleteTask, 
-         checkTask } = props;
+            addTask, 
+            checkTask,
+            deleteTask } = props;
 
     const [inputValue, setInputValue] = useState('');
     const getInputValue = (value: string): void => {
@@ -40,8 +40,8 @@ const Todo:FC<Props> = props => {
             id={task.id}
             text={task.text}
             isDone={task.isDone}
-            deleteTask={deleteTask}
             checkTask={checkTask}
+            deleteTask={deleteTask}
         />
     ))
 

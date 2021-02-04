@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import './index.css';
-
 export interface Props {
     id: number;
     text: string;
@@ -9,15 +8,11 @@ export interface Props {
     deleteTask: Function;
 }
 const TaskComponent: FC<Props> = props => {
-    const {
-        id,
-        text,
-        isDone,
-        checkTask,
-        deleteTask,
-    } = props;
-
-    console.log(id);
+    const { id,
+            text,
+            isDone,
+            checkTask,
+            deleteTask } = props;
 
     return(
         (isDone)?
